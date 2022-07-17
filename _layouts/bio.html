@@ -17,8 +17,7 @@ layout: default
   {% endif %}
 {% endfor %}
 
-<!-- todo: uncomment and fix build -->
-<!-- {% unless page.projects.size == 0 %}
+{% unless page.projects == nil or page.projects.size == 0 %}
   {% assign projects = page.projects | sort: 'projectid' %}
   {% for post in site_posts %}
     {% for project in projects %}
@@ -33,7 +32,7 @@ layout: default
       {% endfor %}
     {% endfor %}
   {% endfor %}
-{% endunless %} -->
+{% endunless %}
 
 <section>
   <div class="content">

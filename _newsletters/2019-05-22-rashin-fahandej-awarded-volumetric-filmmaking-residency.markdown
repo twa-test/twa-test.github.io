@@ -1,8 +1,6 @@
 ---
 title : "Rashin Fahandej Awarded Volumetric Filmmaking Residency"
-draft : true
 ---
-<!-- todo: change draft back and fix buid -->
 We are very pleased to welcome our newest resident Rashin Fahandej, an Iranian-American multimedia artist and filmmaker.
 
 {% include image file='rashin-fahandej.jpg'
