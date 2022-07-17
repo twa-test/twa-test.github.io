@@ -55,7 +55,7 @@
       <span class="value">Thoughtworks Arts {{ roledescription }}</span>
     </li>
   {% else %}
-    {% unless page.projects.size == 0 %}
+    {% unless page.projects == nil or page.projects.size == 0 %}
       <li>
         {% assign projects = page.projects | sort: 'projectid' | uniq } %}
         <span class="key">Project{% if projects.size > 1 %}s{% endif %}</span>
