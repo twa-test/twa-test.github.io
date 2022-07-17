@@ -1,0 +1,76 @@
+{% if include.file contains '/' %}
+	{% assign imagepath = '' %}
+{% elsif page.path contains '_posts' or page.path contains '_newsletters' or page.path contains '_projects' %}
+	{% capture imagepath %}{{
+		page.path |
+		replace: '_posts/', '/images/posts/' |
+		replace: '_newsletters/', '/images/newsletters/' |
+		replace: '_projects/', '/images/projects/' |
+		replace: '/#excerpt', '' |
+		replace: '.markdown', '' |
+		append: '/'
+	}}{% endcapture %}
+{% else %}
+	{% capture imagepath %}{{
+		page.path |
+		prepend: '/images/posts-special/' |
+		replace: '/index.markdown', '' |
+		append: '/'
+	}}{% endcapture %}
+{% endif %}
+
+{% capture image  %}{{ imagepath | append: include.file  }}{% endcapture %}
+{% capture image2 %}{{ imagepath | append: include.file2 }}{% endcapture %}
+
+{% capture alttext %}{{
+	include.alt |
+	markdownify |
+	strip_html |
+	strip_newlines
+}}{% endcapture %}
+
+{% capture alttext2 %}{{
+	include.alt2 |
+	markdownify |
+	strip_html |
+	strip_newlines
+}}{% endcapture %}
+
+{% capture captiontext %}{{
+	include.caption |
+	markdownify |
+	replace: '<p>', '' |
+	replace: '</p>', '' |
+	strip_newlines
+}}{% endcapture %}
+
+{% if include.class.size > 0 %}
+	{% capture figureclass %} class="{{ include.class }}"{% endcapture %}
+{% endif %}
+
+<figure{{ figureclass }}>
+	{% if include.link.size > 0 %}
+	<a href="{{ include.link }}">
+	{% endif %}
+
+		<img src="{{ image }}" alt="{{ alttext }}" />
+		{% if include.file2.size > 0 %}
+			<img src="{{ image2 }}" alt="{{ alttext2 }}" />
+		{% endif %}
+
+	{% if include.link.size > 0 %}
+	</a>
+	{% endif %}
+
+	{% if include.caption.size > 0 %}
+		<figcaption>{{ captiontext }}</figcaption>
+	{% endif %}
+</figure>
+
+{% capture imagepath %}{% endcapture %}
+{% capture image  %}{% endcapture %}
+{% capture image2 %}{% endcapture %}
+{% capture alttext %}{% endcapture %}
+{% capture alttext2 %}{% endcapture %}
+{% capture captiontext %}{% endcapture %}
+{% capture figureclass %}{% endcapture %}

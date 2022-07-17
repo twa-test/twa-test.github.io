@@ -1,0 +1,22 @@
+---
+layout: default
+---
+<section>
+  <div class="content">
+    <header>
+      <h1>Newsletter</h1>
+    </header>
+    <article role="article">
+      <header>
+        <h1>{{ page.title }}</h1>
+        {% include news/newsletter-date.html %}
+      </header>
+      <div class="text">
+        {{ content }}
+      </div>
+    </article>
+    <div class="progress">
+      <a href="/newsletters/" class="blog forwards">All newsletters</a>
+    </div>
+  </div>
+</section>

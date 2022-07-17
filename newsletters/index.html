@@ -1,0 +1,40 @@
+---
+title	   : Newsletters
+bodyid	   : news
+bodyclass  : landing-page
+pagination :
+  enabled	 : true
+  collection : newsletters
+description: Subscribe to the Thoughtworks Arts newsletter to keep up to date with artists, projects, presentations, exhibitions and events.
+---
+<section>
+	<div class="content">
+		<header>
+			<ul class="blog">
+				<li><a href="/blog/"><span>Blog</span></a></li>
+				<li><h1><span>Newsletters</span></h1></li>
+			</ul>
+		</header>
+
+		{% for newsletter in paginator.posts %}
+			<article role="article">
+				<header>
+					<h1><a href="{{ newsletter.url }}">{{ newsletter.title }}</a></h1>
+					{% include news/newsletter-date.html %}
+				</header>
+				<div class="text">
+					{{ newsletter.excerpt }}
+				</div>
+				<div class="progress continue-reading">
+					<a href="{{ newsletter.url }}" class="blog forwards">Continue reading</a>
+				</div>
+			</article>
+			{% if forloop.index == 1 %}
+				<section class="subscribe-box text">
+					{% include news/subscribe-newsletter.html id='newsletter-subscribe-listing' text='Get these newsletters by email:' %}
+				</section>
+			{% endif %}
+		{% endfor %}
+		{% include news/pagination.html folder='newsletters' %}
+	</div>
+</section>

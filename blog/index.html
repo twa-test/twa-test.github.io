@@ -1,0 +1,35 @@
+---
+title	   : Blog
+bodyid	   : news
+bodyclass  : landing-page
+pagination:
+  enabled: true
+  collection : posts
+description : News and posts from the Thoughtworks Arts community, including posts from artists, Thoughtworks employees, partners and collaborators.
+---
+<section>
+	<div class="content">
+		<header>
+			<ul class="blog">
+				<li><h1><span>Blog</span></h1></li>
+				<li><a href="/newsletters/"><span>Newsletters</span></a></li>
+			</ul>
+		</header>
+
+		{% for post in paginator.posts %}
+		<article role="article">
+			<header>
+				<h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
+				{% include news/blog-attribution.html %}
+			</header>
+			<div class="text">
+				{{ post.excerpt }}
+			</div>
+			<div class="progress continue-reading">
+				<a href="{{ post.url }}" class="blog forwards">Continue reading</a>
+			</div>
+		</article>
+		{% endfor %}
+		{% include news/pagination.html folder='blog' %}
+	</div>
+</section>

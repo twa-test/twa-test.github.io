@@ -1,0 +1,136 @@
+.subscribe {
+	width: 50%;
+	float: left;
+	margin-right: 5%;
+	margin-left: 2%;
+	text-align: left;
+
+	.newsletter-form {
+		max-width: $max-text-width;
+		width: 100%;
+		display: inline-block;
+		text-align: left;
+
+		label {
+			color: $white;
+			display: block;
+			margin-bottom: 1em;
+			font-style: italic;
+		}
+
+		input {
+			border: 0;
+			outline: 0;
+			vertical-align: bottom;
+			font-size: $p-subtraction-font-size;
+			font-weight: lighter;
+			font-style: normal;
+			padding: 7px;
+			display: inline-block;
+		}
+
+		input.faded {
+			color: $grey-mid;
+			font-style: italic;
+		}
+
+		input[type=email] {
+			width: 36%;
+			margin-bottom: 0.03em;
+		}
+
+		input[type='submit'] {
+			background-color: transparent;
+			letter-spacing: 0.1em;
+			text-transform: lowercase;
+			color: $white;
+			-webkit-appearance: button;
+			cursor: pointer;
+			text-align: left;
+			transition: all 0.24s;
+			font-size: $p-subtraction-font-size;
+			background-image: url('/images/icons/arrow-white.png');
+			background-repeat: no-repeat;
+			background-position: right;
+			background-size: contain;
+			padding: 0.5em 2.45em 0.5em 0;
+			margin-left: 1.3em;
+		}
+
+		input[type='submit']:hover {
+			color: $yellow;
+			background-image: url('/images/icons/arrow-canary.png');
+		}
+	}
+}
+
+.subscribe-box {
+	padding-top: 1em;
+	margin: 0 auto;
+	text-align: center;
+	position: relative;
+	top: 1.5em;
+
+	.subscribe {
+		display: inline-block;
+		background-color: $grey-mid;
+		padding: 1.7em;
+		width: 68%;
+		margin: 0;
+		transition: all 0.4s;
+	}
+
+	.subscribe:hover {
+		background-color: $black;
+	}
+}
+
+@media (max-width: 999px) {
+	footer {
+		.subscribe {
+			width: 100%;
+			float: none;
+			text-align: center;
+			margin-bottom: 2em;
+			margin-left: 0;
+			padding-bottom: 2em;
+		}
+	}
+}
+
+@media (max-width: 549px) {
+	.subscribe-box {
+		width: 100%;
+		top: 0;
+		margin: 0.5em 0;
+
+		.subscribe {
+			padding: 1.5em;
+			width: calc(100% - 6rem);
+		}
+	}
+}
+
+@media (max-width: 449px) {
+	body:not(.home-page) .content .text.subscribe-box {
+		top: -3em;
+
+		.subscribe {
+			width: calc(100% - 3em);
+			margin: 0;
+		}
+	}
+
+	.subscribe-box {
+		 .subscribe .newsletter-form {
+			input[type=email] {
+				width: 85%;
+			}
+
+			input[type='submit'] {
+				display: block;
+				margin: 1em 0 0 0;
+			}
+		}
+	}
+}

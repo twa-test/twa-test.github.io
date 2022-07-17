@@ -1,0 +1,32 @@
+{% if page.url contains site.banner-url or page.url == '/' %}
+{% assign display-banner = false %}
+{% else %}
+{% assign display-banner = site.display-banner %}
+{% endif %}
+
+
+{% if display-banner %}
+  {% capture bodyclass %}{{ page.bodyclass }} site-banner{% endcapture %}
+  {% capture bodyclass %}{{ bodyclass | strip }}{% endcapture %}
+{% else %}
+  {% capture bodyclass %}{{ page.bodyclass }}{% endcapture %}
+{% endif %}
+
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+
+  {%- include head.html -%}
+
+  <body id="{{ page.bodyid }}"{% if bodyclass != '' %} class="{{ bodyclass }}"{% endif %}>
+
+    {%- include header.html -%}
+
+    <main>
+      {{ content }}
+    </main>
+
+    {%- include footer.html -%}
+
+  </body>
+
+</html>

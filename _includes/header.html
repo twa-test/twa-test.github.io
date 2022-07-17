@@ -1,0 +1,19 @@
+<header role="banner">
+  <section id="logonav">
+    <h1>Thoughtworks Arts</h1>
+    <a href="/" class="logo">
+      <img src="/images/logos/v2/thoughtworks-arts.png" alt="Thoughtworks Arts" />
+      <span class="strap">global technology research lab</span>
+    </a>
+    {% if display-banner %}
+      <aside class="banner">
+        <a href="{{ site.banner-url }}">{{ site.banner-text }}</a>
+      </aside>
+    {% endif %}
+    {% include header-footer/social.html %}
+    {% include header-footer/navigation.html %}
+  </section>
+  {% if bodyclass contains 'landing-page' %}
+    <figure id="image-splash"></figure>
+  {% endif %}
+</header>

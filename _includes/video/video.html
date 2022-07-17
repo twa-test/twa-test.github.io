@@ -1,0 +1,29 @@
+{% if include.ratio.size > 0 %}
+	{% capture ratioclass %} ratio-{{ include.ratio }}{% endcapture %}
+{% endif %}
+
+{% capture captiontext %}{{
+	include.caption |
+	markdownify |
+	replace: '<p>', '' |
+	replace: '</p>', '' |
+	strip_newlines
+}}{% endcapture %}
+
+{% if include.id2 %}
+	{% capture countclass %} class="double"{% endcapture %}
+{% endif %}
+
+<figure{{ countclass }}>
+	{% include video/video-iframe.html videoid=include.id %}
+
+	{% if include.id2 %}
+		{% include video/video-iframe.html videoid=include.id2 %}
+	{% endif %}
+
+	{% if include.caption.size > 0 %}
+		<figcaption>{{ captiontext }}</figcaption>
+	{% endif %}
+</figure>
+
+{% capture captiontext %}{% endcapture %}

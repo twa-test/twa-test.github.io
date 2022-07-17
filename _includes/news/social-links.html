@@ -1,0 +1,11 @@
+<ul class="social-links new-window">
+  <li>
+    <a href="https://twitter.com/share?text={{ include.post.title | uri_escape }}&amp;url=https://{{ site.name }}{{ include.post.url | uri_escape }}&amp;via={{ site.twitter_username }}" aria-label="Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+  </li>
+  <li>
+    <a href="https://www.facebook.com/sharer/sharer.php?title={{ include.post.title | uri_escape }}&amp;u=https://{{ site.name }}{{ include.post.url | uri_escape }}" aria-label="Facebook"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+  </li>
+  <li>
+    <a href="https://www.tumblr.com/share?v=3&amp;t={{ include.post.title | uri_escape }}&amp;u=https://{{ site.name }}{{ include.post.url | uri_escape }}" aria-label="Tumblr"><i class="fab fa-tumblr" aria-hidden="true"></i></a>
+  </li>
+</ul>
